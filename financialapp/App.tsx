@@ -1,13 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { Button } from '@rneui/base';
-
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import { Button } from "@rneui/base";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Button title="Hello World!"/>
-      <StatusBar style="auto" />
+      <Button
+        buttonStyle={styles.button}
+        title="Hello World!"
+        titleStyle={styles.fontColor}
+      />
+      <StatusBar style="light" />
     </View>
   );
 }
@@ -15,8 +18,14 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#13111c",
   },
+  button: {
+    backgroundColor: "#212121",
+    borderWidth: 1,
+    borderColor: "#414141",
+  },
+  fontColor: { color: "#d0d0d0" },
 });
