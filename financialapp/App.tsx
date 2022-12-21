@@ -1,23 +1,21 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text } from "react-native";
-import NavBar from "./components/NavBar";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Profile from "./screens/Profile";
+import Transactions from "./screens/Transactions";
+import Friends from "./screens/Friends";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-
   return (
-    <View style={styles.container}>
-      <NavBar/>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Profile" component={Profile}></Stack.Screen>
+        <Stack.Screen name="Transactions" component={Transactions}></Stack.Screen>
+        <Stack.Screen name="Friends" component={Friends}></Stack.Screen>
+      </Stack.Navigator>
       <StatusBar style="light" />
-    </View>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#13111c",
-  },
-  fontColor: { color: "#d0d0d0" }
-});
