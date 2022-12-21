@@ -1,13 +1,13 @@
 import { Tab } from "@rneui/base";
 import { useState } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
-export default function NavBar(){
-
+export default function NavBar() {
   const [index, setIndex] = useState(0);
 
-    return(
-        <Tab
+  return (
+    <View>
+      <Tab
         value={index}
         onChange={(e) => setIndex(e)}
         indicatorStyle={{
@@ -17,7 +17,7 @@ export default function NavBar(){
         <Tab.Item
           titleStyle={styles.navBarFont}
           containerStyle={(active) => ({
-            backgroundColor: active ? "#23212c" : undefined,
+            backgroundColor: active ? "#23212c" : "#13111c",
           })}
         >
           Friends
@@ -25,7 +25,7 @@ export default function NavBar(){
         <Tab.Item
           titleStyle={styles.navBarFont}
           containerStyle={(active) => ({
-            backgroundColor: active ? "#23212c" : undefined,
+            backgroundColor: active ? "#23212c" : "#13111c",
           })}
         >
           Transactions
@@ -33,18 +33,18 @@ export default function NavBar(){
         <Tab.Item
           titleStyle={styles.navBarFont}
           containerStyle={(active) => ({
-            backgroundColor: active ? "#23212c" : undefined,
+            backgroundColor: active ? "#23212c" : "#13111c",
           })}
         >
           Profile
         </Tab.Item>
       </Tab>
-    )
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    navBarFont: {
-      fontSize: 10,
-    },
-  });
-  
+  navBarFont: {
+    fontSize: 10,
+  },
+});
