@@ -1,16 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Dispatch, SetStateAction } from "react";
 import { StyleSheet, View } from "react-native";
 import { ButtonGroup } from "@rneui/base";
 import { RouteProp } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
-
 type StackParamList = {
   Friends: undefined;
   Transactions: undefined;
   Profile: undefined;
 };
 
-const buttons = ["Friends", "Transactions", "Profile"];
+const buttons:Array<"Friends" | "Transactions" | "Profile"> = ["Friends", "Transactions", "Profile"];
 
 type Props = {
   route:
@@ -26,10 +25,10 @@ type Props = {
 
 export default function NavBar({ navigation, route }: Props) {
   const tabName = route?.name ? buttons.indexOf(route.name) : 0;
-  const [selectedIndex, setSelectedIndex] = useState(tabName ? tabName : 0);
+  const [selectedIndex, setSelectedIndex] = useState<number>(tabName);
 
   useEffect(() => {
-    setSelectedIndex(tabName ? tabName : 0);
+    setSelectedIndex(tabName);
   }, []);
 
   return (
