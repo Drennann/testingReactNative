@@ -5,9 +5,9 @@ import data from "../data.json";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type StackParamList = {
-  Friends: { tabName: number } | undefined;
-  Transactions: { tabName: number } | undefined;
-  Profile: { tabName: number } | undefined;
+  Friends: undefined;
+  Transactions: undefined;
+  Profile: undefined;
 };
 
 type Props = NativeStackScreenProps<StackParamList, "Transactions">;

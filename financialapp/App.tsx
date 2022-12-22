@@ -6,9 +6,9 @@ import Transactions from "./screens/Transactions";
 import Friends from "./screens/Friends";
 
 type StackParamList = {
-  Friends: { tabName: number } | undefined;
-  Transactions: { tabName: number } | undefined;
-  Profile: { tabName: number } | undefined;
+  Friends: undefined;
+  Transactions: undefined;
+  Profile: undefined;
 };
 
 const Stack = createNativeStackNavigator<StackParamList>();
