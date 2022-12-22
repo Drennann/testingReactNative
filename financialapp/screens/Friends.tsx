@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import { StyleSheet } from "react-native";
 import NavBar from "../components/NavBar";
 import data from "../data.json";
-import type{ NativeStackScreenProps} from "@react-navigation/native-stack"
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type StackParamList = {
   Friends: { tabName: number } | undefined;
@@ -10,17 +10,19 @@ type StackParamList = {
   Profile: { tabName: number } | undefined;
 };
 
-type Props = NativeStackScreenProps<StackParamList, 'Friends'>;
+type Props = NativeStackScreenProps<StackParamList, "Friends">;
 
 export default function Friends({ navigation, route }: Props) {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.container}>
         {data.friends.map((friend, index) => {
-          return <View key={index} style={styles.friendCard}>
-            <Text style={styles.fontColor}>{friend.name}</Text>
-            <Text style={styles.fontColor}>{friend.email}</Text>
-          </View>;
+          return (
+            <View key={index} style={styles.friendCard}>
+              <Text style={styles.fontColor}>{friend.name}</Text>
+              <Text style={styles.fontColor}>{friend.email}</Text>
+            </View>
+          );
         })}
       </View>
       <NavBar navigation={navigation} route={route}></NavBar>
@@ -47,12 +49,12 @@ const styles = StyleSheet.create({
   friendCard: {
     backgroundColor: "#23212c",
     display: "flex",
-    justifyContent:"center",
-    borderRadius:10,
-    borderWidth:1,
-    borderColor:"#313131",
+    justifyContent: "center",
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#313131",
     width: "80%",
     height: 150,
-    margin:10
+    margin: 10,
   },
 });

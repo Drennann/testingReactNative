@@ -1,17 +1,35 @@
-
 import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { ButtonGroup } from "@rneui/base";
+import { RouteProp } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+type StackParamList = {
+  Friends: { tabName: number } | undefined;
+  Transactions: { tabName: number } | undefined;
+  Profile: { tabName: number } | undefined;
+};
 
 const buttons = ["Friends", "Transactions", "Profile"];
 
+type Props = {
+  route:
+    | RouteProp<StackParamList, "Transactions">
+    | RouteProp<StackParamList, "Profile">
+    | RouteProp<StackParamList, "Friends">
+    | undefined;
+  navigation:
+    | NativeStackNavigationProp<StackParamList, "Profile", undefined>
+    | NativeStackNavigationProp<StackParamList, "Transactions", undefined>
+    | NativeStackNavigationProp<StackParamList, "Friends", undefined>;
+};
 
-export default function NavBar({ navigation, route }:any) {
-  const { tabName } = route.params ? route.params : 0;
-  const [selectedIndex, setSelectedIndex] = useState(tabName? tabName : 0);
+export default function NavBar({ navigation, route }: Props) {
+  const tabName = route?.name ? buttons.indexOf(route.name) : 0;
+  const [selectedIndex, setSelectedIndex] = useState(tabName ? tabName : 0);
 
   useEffect(() => {
-    setSelectedIndex(tabName? tabName : 0);
+    setSelectedIndex(tabName ? tabName : 0);
   }, []);
 
   return (
@@ -19,8 +37,8 @@ export default function NavBar({ navigation, route }:any) {
       <ButtonGroup
         buttons={buttons}
         selectedIndex={selectedIndex}
-        onPress={(value) => {
-          navigation.navigate(buttons[value], { tabName: value });
+        onPress={(value: number) => {
+          navigation.navigate(buttons[value]);
         }}
         containerStyle={styles.containerStyle}
         textStyle={styles.navBarFont}

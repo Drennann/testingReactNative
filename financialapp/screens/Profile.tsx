@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import { StyleSheet } from "react-native";
 import NavBar from "../components/NavBar";
 import data from "../data.json";
-import type{ NativeStackScreenProps} from "@react-navigation/native-stack"
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type StackParamList = {
   Friends: { tabName: number } | undefined;
@@ -10,7 +10,7 @@ type StackParamList = {
   Profile: { tabName: number } | undefined;
 };
 
-type Props = NativeStackScreenProps<StackParamList, 'Profile'>;
+type Props = NativeStackScreenProps<StackParamList, "Profile">;
 
 export default function Profile({ navigation, route }: Props) {
   return (
@@ -51,23 +51,23 @@ const styles = StyleSheet.create({
   balanceCard: {
     backgroundColor: "#23212c",
     display: "flex",
-    justifyContent:"center",
-    borderRadius:10,
-    borderWidth:1,
-    borderColor:"#313131",
+    justifyContent: "center",
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#313131",
     width: "80%",
     height: 150,
-    margin:10
+    margin: 10,
   },
   userCard: {
-    display:"flex",
-    justifyContent:"center",
+    display: "flex",
+    justifyContent: "center",
     backgroundColor: "#23212c",
-    borderRadius:10,
-    borderWidth:1,
-    borderColor:"#313131",
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#313131",
     width: "80%",
     minHeight: 70,
-    margin: 10
+    margin: 10,
   },
 });
