@@ -2,8 +2,17 @@ import { View, Text } from "react-native";
 import { StyleSheet } from "react-native";
 import NavBar from "../components/NavBar";
 import data from "../data.json";
+import type{ NativeStackScreenProps} from "@react-navigation/native-stack"
 
-export default function Transactions({navigation, route }: any) {
+type StackParamList = {
+  Friends: { tabName: number } | undefined;
+  Transactions: { tabName: number } | undefined;
+  Profile: { tabName: number } | undefined;
+};
+
+type Props = NativeStackScreenProps<StackParamList, 'Transactions'>;
+
+export default function Transactions({navigation, route }: Props) {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.container}>

@@ -5,7 +5,13 @@ import Profile from "./screens/Profile";
 import Transactions from "./screens/Transactions";
 import Friends from "./screens/Friends";
 
-const Stack = createNativeStackNavigator();
+type StackParamList = {
+  Friends: { tabName: number } | undefined;
+  Transactions: { tabName: number } | undefined;
+  Profile: { tabName: number } | undefined;
+};
+
+const Stack = createNativeStackNavigator<StackParamList>();
 
 export default function App() {
   return (

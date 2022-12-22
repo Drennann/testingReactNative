@@ -1,16 +1,17 @@
-import { Tab } from "@rneui/base";
+
 import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { ButtonGroup } from "@rneui/base";
 
 const buttons = ["Friends", "Transactions", "Profile"];
 
-export default function NavBar({ navigation, route }: any) {
+
+export default function NavBar({ navigation, route }:any) {
   const { tabName } = route.params ? route.params : 0;
-  const [selectedIndex, setSelectedIndex] = useState(tabName ? tabName : 0);
+  const [selectedIndex, setSelectedIndex] = useState(tabName? tabName : 0);
 
   useEffect(() => {
-    setSelectedIndex(tabName ? tabName : 0);
+    setSelectedIndex(tabName? tabName : 0);
   }, []);
 
   return (
@@ -24,7 +25,6 @@ export default function NavBar({ navigation, route }: any) {
         containerStyle={styles.containerStyle}
         textStyle={styles.navBarFont}
         selectedButtonStyle={styles.selectedButton}
-        selectedTextStyle={{}}
       />
     </View>
   );
